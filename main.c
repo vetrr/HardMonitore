@@ -3,14 +3,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/statvfs.h>
+#include <unistd.h>
 
-int main(){
-
-    double uso = ler_ram();
-    printf("Uso atual da RAM: %.2f%%\n", uso);
-
-    return 0;
-}
 
 double ler_ram() {
     int memoriaTotal = 0;
@@ -40,4 +34,18 @@ double ler_ram() {
     
     return uso_ram;
     }
+}
+
+int main(){
+    // O número 1 em C significa "verdadeiro". Logo, while(verdadeiro) roda para sempre.
+    while(1) { 
+        system("clear"); // Limpa a tela do terminal (apaga a leitura anterior)
+        
+        double uso = ler_ram();
+        printf("Uso atual da RAM: %.2f%%\n", uso);
+        
+        sleep(1); // Pausa o programa por 1 segundo antes de repetir o laço
+    }
+    
+    return 0; // O programa nunca vai chegar aqui, a menos que seja forçado a parar
 }
