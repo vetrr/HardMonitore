@@ -5,6 +5,10 @@
 #include <sys/statvfs.h>
 
 int main(){
+
+    double uso = ler_ram();
+    printf("Uso atual da RAM: %.2f%%\n", uso);
+
     return 0;
 }
 
@@ -31,4 +35,9 @@ double ler_ram() {
     }
 
     fclose(arquivo);
+
+    double uso_ram = ((double)(memoriaTotal - memoriaDisponivel) / (double)memoriaTotal) * 100.0;
+    
+    return uso_ram;
+    }
 }
